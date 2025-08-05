@@ -7,7 +7,7 @@ function agregarAmigo() {//funcion al boton añadir
 
   if (nombre === "") {
     alert("Por favor, inserte un nombre.");
-    return;//esto detiene la funcion
+    return;// detiene la funcion
   }
 
   amigos.push(nombre);//nombre de la caja de nombres
@@ -23,5 +23,16 @@ function agregarAmigo() {//funcion al boton añadir
   //limpiar el input/campo
   document.getElementById("amigo").value = "";
 }
+function sortearAmigo() {//funcion en caso que se realice el sorteo sin agregar nombres
+  if (amigos.length === 0){
+    alert ("La lista está vacía. Agrega al menos un amigo.")
+    return;//detiene la funcion
+  }
+  const indice = Math.floor(Math.random ()* amigos.length);
+  const amigoElegido = amigos[indice];
+  
+  const resultado = document.getElementById('resultado');
+  resultado.innerHTML = "<li>El amigo secreto es: <strong>" + amigoElegido + "</strong></li>";
 
+}
 
